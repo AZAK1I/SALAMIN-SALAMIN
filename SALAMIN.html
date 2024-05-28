@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salamin Salamin</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('bini.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        .mirror-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 320px;
+            height: 320px;
+            background-color: rgba(255, 240, 246, 0.9);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            position: relative;
+            border: 5px solid #ff69b4;
+        }
+        .mirror {
+            width: 280px;
+            height: 280px;
+            background-color: rgba(255, 230, 233, 0.9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid #ffb6c1;
+            text-align: center;
+            color: #ff69b4;
+            font-weight: bold;
+        }
+        .response {
+            font-size: 18px;
+            padding: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #ff69b4;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        input[type="text"] {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ffb6c1;
+            width: 250px;
+        }
+        h1 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Salamin Salamin</h1>
+    <div class="mirror-container">
+        <div class="mirror">
+            <div id="response" class="response">Ask a question...</div>
+        </div>
+    </div>
+    <input type="text" id="question" placeholder="Type your question here">
+    <button onclick="askMirror()">Ask the Mirror</button>
+    <audio id="background-music" src="BINI.MP3" loop autoplay></audio>
+    <script>
+        function askMirror() {
+            const responses = [
+                "Look within yourself, Bloom.",
+                "The answer lies in your heart, Bloom.",
+                "Reflect on your feelings, Bloom.",
+                "You already know the answer, Bloom.",
+                "Embrace who you are, Bloom.",
+                "Your inner self holds the truth, Bloom.",
+                "Trust your instincts, Bloom.",
+                "Be true to yourself, Bloom.",
+                "Find clarity within, Bloom.",
+                "Your reflection reveals the truth, Bloom."
+            ];
+            const randomIndex = Math.floor(Math.random() * responses.length);
+            const responseDiv = document.getElementById('response');
+            const questionInput = document.getElementById('question').value;
+            if (questionInput) {
+                responseDiv.innerHTML = responses[randomIndex];
+            } else {
+                responseDiv.innerHTML = "Please type a question, Bloom.";
+            }
+        }
+    </script>
+</body>
+</html>
